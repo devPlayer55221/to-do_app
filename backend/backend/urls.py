@@ -16,12 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from knox import views as knox_views
 from todo import views
 
-router = routers.DefaultRouter()
-router.register(r'todos', views.TodoView, 'todo')
-router.register(r'users', views.UserView, 'todo')
+# router = routers.DefaultRouter()
+
+# router.register(r'users', views.UserView)
+# router.register(r'todos', views.TodoView)
+# router.register(r'login', views.LoginView)
+
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),	
+#     path('api/', include(router.urls)),
+# ]
 
 urlpatterns = [
-    path('admin/', admin.site.urls),	path('api/', include(router.urls))
+	path('api/register/', views.RegisterAPI.as_view(), name='register'),
+	path('api/login/', views.LoginAPI.as_view(), name='login'),
+	path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
+	path('api/user/', views.UserAPI.as_view(), name='user'),
+	path('admin/', admin.site.urls)
 ]

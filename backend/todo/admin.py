@@ -6,8 +6,8 @@ from .models import User
 class TodoAdmin(admin.ModelAdmin):
 	list_display = ('user', 'category', 'title', 'description', 'completed')
 
-class UserAdmin(admin.ModelAdmin):
-	list_display = ('email_id', 'password')
+# class UserAdmin(admin.ModelAdmin):
+# 	list_display = ('email_id', 'password')
 
 admin.site.register(Todo, TodoAdmin)
-admin.site.register(User, UserAdmin)
+#admin.site.register(User, UserAdmin)

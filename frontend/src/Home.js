@@ -16,6 +16,7 @@ class Home extends Component {
  //      		.then(res => this.setState({ todoList: res.data }))
  //      		.catch(err => console.log(err));
  //      };
+
 	render() {
 		return (<Router>
 			<div className="Home">
